@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>Meijia Zhou INF1339 Project 2</title>
+
+    
+</head>
+    <style>
+            .output {color: chartreuse;}
+        </style>
+    <script src = "http://cdnjs.cloudflare.com/ajax//libs/p5.js/0.9.0/p5.js"></script>
+    <script>
+        //store data in global variable
+   var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=rainbow&api-key=iGRJBxHl5BzZ4Cs6AjByeQ6lVpflBOxg";
+   var articleCount=0
+        //SETUP is a standard way p5 starts a script 
+        
+    function setup(){
+        //p5 usually used for drawing
+        noCanvas();
+        //SEND the URL and when the data comes back,run the function "got Data"
+        loadJSON(url,gotData);
+        
+    }
+    function gotData(data){
+        alert("FUNCTION GOTDATA WAS ACTIVATED")
+        document.getElementById("test_output").innerHTML = data.response.docs[0].headline.main
+    }
+    
+    </script>
+<body>
+    <h1>New York Times API: Articles from all time about rainbows</h1>
+    <p id="test_output" class= "output"></p>
+</body>
+</html> 
